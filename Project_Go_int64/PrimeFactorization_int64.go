@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	primelibs "./primelibslong"
+	primelibs "./primelibsint64"
 )
 
 func main() {
