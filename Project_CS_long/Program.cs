@@ -11,7 +11,7 @@ namespace Project_CS
                 prlong_msg_and_exit();
             }
 
-            // スレッド数指定のチェック
+            // 素因数分解したい値の指定
             long n;
             if (long.TryParse(args[0], out n) == false)
             {
