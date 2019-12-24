@@ -2,10 +2,11 @@ package PrimeFactorization
 
 import (
 	"fmt"
+	"math"
 	"strconv"
+	"strings"
 	"time"
 
-	primelibs "./primelibs_int64"
 	systeminformation "./systeminformation"
 )
 
@@ -17,15 +18,85 @@ func Main(n int64) {
 
 	systeminformation.PrintSystemInformation()
 
-	bitCount := primelibs.GetBitLength(n, 5000)
-	fmt.Printf("%s < pow(2, %d) ... %d bit\n",  strconv.FormatInt(n, 10), bitCount, bitCount)
+	bitCount := GetBitLength(n, 5000)
+	fmt.Printf("%s < pow(2, %d) ... %d bit\n", strconv.FormatInt(n, 10), bitCount, bitCount)
 
 	timeStart := time.Now()
 
-	resultArray := primelibs.CalcPrimes(n)
+	primes := CalcPrimes(n)
 
 	timeEnd := time.Now()
 
-	fmt.Printf("n = %s, primes = [%s]\n",  strconv.FormatInt(n, 10), primelibs.ArrayInt64ToString(resultArray))
+	fmt.Printf("n = %s, primes = [%s]\n", strconv.FormatInt(n, 10), ArrayInt64ToString(primes))
+	fmt.Printf("Answer Check: %s\n", AnserCheck(n, primes))
 	fmt.Printf("Execute time: %.3f [s]\n\n", timeEnd.Sub(timeStart).Seconds())
+}
+
+// GetBitLength ...
+func GetBitLength(n int64, max int64) int64 {
+	for i := int64(1); i < max; i++ {
+		if n <= int64(math.Pow(2, float64(i))) {
+			return i
+		}
+	}
+	return -1
+}
+
+// CalcPrimes ...
+func CalcPrimes(n int64) []int64 {
+	// 素因数を格納する配列
+	results := make([]int64, 0)
+
+	max := int64(math.Sqrt(float64(n))) + 1
+
+	// 2 で割っていく
+	for n%2 == 0 {
+		results = append(results, 2)
+		n /= int64(2)
+	}
+
+	// 3 ～ math.sqrt(n) の数字で割っていく
+	for num := int64(3); num < max; num += 2 {
+		for n%num == 0 {
+			results = append(results, num)
+			n /= num
+		}
+
+		if n == 1 {
+			break
+		}
+	}
+
+	if n != 1 {
+		results = append(results, n)
+	}
+
+	return results
+}
+
+// ArrayInt64ToString ...
+func ArrayInt64ToString(primes []int64) string {
+	if len(primes) <= 0 {
+		return ""
+	}
+	primesStr := make([]string, len(primes))
+	for i := 0; i < len(primes); i++ {
+		primesStr[i] = strconv.FormatInt(primes[i], 10)
+	}
+
+	resultStr := strings.Join(primesStr[:], ", ")
+	return resultStr
+}
+
+func AnserCheck(n int64, primes []int64) string {
+	answer := (int64)(1)
+	for _, target := range primes {
+		answer *= target
+	}
+
+	if n == answer {
+		return "OK"
+	} else {
+		return "NG"
+	}
 }

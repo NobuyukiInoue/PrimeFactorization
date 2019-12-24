@@ -22,11 +22,12 @@ namespace Project_CS
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
 
-            long[] result = trial_division(n);
+            long[] primes = trial_division(n);
 
             sw.Stop();
 
-            Console.WriteLine("n = " + n.ToString() + ", primes = [" + ArraylongToString(result) + "]");
+            Console.WriteLine("n = " + n.ToString() + ", primes = [" + ArraylongToString(primes) + "]");
+            Console.WriteLine("Anser Check  : " + AnswerCheck(n, primes));
             Console.WriteLine("Execute time : " + (sw.ElapsedMilliseconds/1000.0).ToString() + "[s]\n");
         }
 
@@ -46,10 +47,18 @@ namespace Project_CS
         {
             List<long> prime_list = new List<long>();
             long max = (long)(Math.Sqrt(n)) + 1;
-            for (long i = 2; i < max; i++) {
+
+            // 2 ‚ÅŠ„‚Á‚Ä‚¢‚­
+            while (n % 2 == 0) {
+                prime_list.Add((long)2);
+                n /= 2;
+            }
+
+            // 3 ` Math.Sqrt(n) ‚Ì”Žš‚ÅŠ„‚Á‚Ä‚¢‚­
+            for (long i = 3; i < max; i++) {
                 while (n % i == 0) {
-                    n /= i;
                     prime_list.Add(i);
+                    n /= i;
                 }
             }
 
@@ -75,6 +84,18 @@ namespace Project_CS
             }
 
             return resultStr;
+        }
+
+        private String AnswerCheck(long n, long[] primes)
+        {
+            long answer = 1;
+            foreach (long target in primes)
+                answer *= target;
+
+            if (n == answer)
+                return "OK";
+            else
+                return "NG";
         }
     }
 }

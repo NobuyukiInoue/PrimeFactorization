@@ -24,6 +24,7 @@ public class PrimeFactorization {
         long end = System.currentTimeMillis();
 
         System.out.println("n = " + Long.toString(n) + ", primes = [" + ArraylongToString(result) + "]");
+        System.out.println("Answer Check : " + AnswerCheck(n, result));
         System.out.println("Execute time : " + (end - start)/1000.0 + "[s]\n");
     }
 
@@ -39,10 +40,18 @@ public class PrimeFactorization {
     private long[] trial_division(long n) {
         List<Long> prime_list = new ArrayList<>();
         long max = (long)(Math.sqrt(n)) + 1;
-        for (long i = 2; i < max; i++) {
+
+        // 2 ‚ÅŠ„‚Á‚Ä‚¢‚­
+        while (n % 2 == 0) {
+            prime_list.add((long)2);
+            n /= 2;
+        }
+
+        // 3 ` Math.sqrt(n) ‚Ì”Žš‚ÅŠ„‚Á‚Ä‚¢‚­
+        for (long i = 3; i < max; i += 2) {
             while (n % i == 0) {
-                n /= i;
                 prime_list.add(i);
+                n /= i;
             }
         }
 
@@ -70,5 +79,18 @@ public class PrimeFactorization {
         }
 
         return resultStr;
+    }
+
+    private String AnswerCheck(long n, long[] primes) {
+        long answer = 1;
+
+        for (long target : primes)
+            answer *= target;
+
+        if (answer == n)
+            return "OK";
+        else
+            return "NG";
+
     }
 }
