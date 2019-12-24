@@ -14,13 +14,11 @@ func main() {
 		printMsgAndExit(os.Args[0])
 	}
 
-	n, _ := strconv.ParseInt(os.Args[1], 10, 64)
-	/*
-	if n == nil {
+	n, err := strconv.ParseInt(os.Args[1], 10, 64)
+	if err != nil {
 		fmt.Printf("%s ... ParseInt() error.\n", os.Args[1])
 		os.Exit(1)
 	}
-	*/
 
 	primefactorization.Main(n)
 }

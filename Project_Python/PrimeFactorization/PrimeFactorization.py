@@ -4,29 +4,29 @@ import math
 import time
 from .SystemInformation import SystemInformation
 
-def main(N):
-    if N <= 0:
-        print("{0} is not positive integer.".format(N))
+def main(n):
+    if n <= 0:
+        print("{0} is not positive integer.".format(n))
         exit(1)
 
     SystemInformation.printSystemInformation()
 
     for i in range(1, 512 + 1):
-        if N < pow(2, i):
+        if n < pow(2, i):
             break
     print("{0:d} < pow(2, {1:d}) ... {1:d} bit".format(N, i))
 
     time0 = time.time()
 
-    primes = trial_division(N)
+    primes = trial_division(n)
     time1 = time.time()
 
-    print("n = {0:d}, primes = {1}".format(N, primes))
+    print("n = {0:d}, primes = {1}".format(n, primes))
     print("Execution time : {0:f}[s]".format(time1 - time0))
 
 
 def exit_msg(argv0):
-    print("Usage: python {0} value_N".format(argv0))
+    print("Usage: python {0} [target number]".format(argv0))
     exit(0)
 
 
