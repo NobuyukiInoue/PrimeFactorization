@@ -1,4 +1,6 @@
-import java.util.*;
+import PrimeFactorization.*;
+import ExLong.*;
+import ExLong.Out.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,8 +8,16 @@ public class Main {
             prlong_msg_and_exit();
         }
 
-        // ëfàˆêîï™âÇµÇΩÇ¢ílÇÃì«Ç›çûÇ›
-        Long n = Long.parseLong(args[0]);
+        ExLong el = new ExLong();
+        Out<Long> n_temp = new Out<Long>();
+        long n;
+        if (el.TryParse(args[0], n_temp) == false) {
+            System.out.println(args[0] + " in not numeric.");
+            return;
+        }
+
+        // Read the value you want to factor
+        n = n_temp.get();
 
         PrimeFactorization pf = new PrimeFactorization();
         pf.Main(n);

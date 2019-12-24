@@ -11,19 +11,27 @@
             "mainClass": "${file}",
             "args": 
             [
-                "../testdata/data_~~~.txt",
-                "4"
+                "123456"
             ]
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Main",
+            "name": "Debug (Launch)-Main 123456",
             "request": "launch",
             "mainClass": "Main",
             "args": 
             [
-                "../testdata/data_~~~.txt",
-                "4"
+                "123456"
+            ]
+        }
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main aaa",
+            "request": "launch",
+            "mainClass": "Main",
+            "args": 
+            [
+                "aaa"
             ]
         }
     ]

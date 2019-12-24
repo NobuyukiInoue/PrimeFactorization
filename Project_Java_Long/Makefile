@@ -1,9 +1,18 @@
 JAVAC =javac
-JAVAC_FLAGS =-encoding SJIS
+# JAVAC_FLAGS =-encoding SJIS
 
-all:	PrimeFactorization.class Main.class
+all:	Out.class ExLong.class SystemInformation.class PrimeFactorization.class Main.class
 
-PrimeFactorization.class:	PrimeFactorization.java
+Out.class:	ExLong/Out/Out.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
+
+ExLong.class:	ExLong/ExLong.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
+
+SystemInformation.class:	PrimeFactorization/SystemInformation/SystemInformation.java
+	$(JAVAC) $(JAVAC_FLAGS) $<
+
+PrimeFactorization.class:	PrimeFactorization/PrimeFactorization.java
 	$(JAVAC) $(JAVAC_FLAGS) $<
 
 Main.class:	Main.java

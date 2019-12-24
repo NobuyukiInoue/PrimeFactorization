@@ -1,26 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import math
-import os
-import sys
 import time
+from .SystemInformation import SystemInformation
 
-def main():
-    argv = sys.argv
-    argc = len(argv)
-
-    if argc < 2:
-        exit_msg(argv[0])
-
-    if argv[1].isnumeric() == False:
-        print("{0} is not numeric.".format(argv[1]))
-        exit(1)
-
-    N = int(argv[1])
+def main(N):
     if N <= 0:
-        print("{0} is not positive integer.".format(argv[1]))
+        print("{0} is not positive integer.".format(N))
         exit(1)
-    
+
+    SystemInformation.printSystemInformation()
+
     for i in range(1, 512 + 1):
         if N < pow(2, i):
             break
@@ -32,7 +22,7 @@ def main():
     time1 = time.time()
 
     print("n = {0:d}, primes = {1}".format(N, primes))
-    print("Execution time ... {0:f}[s]".format(time1 - time0))
+    print("Execution time : {0:f}[s]".format(time1 - time0))
 
 
 def exit_msg(argv0):

@@ -1,7 +1,9 @@
-import java.util.*;
+package PrimeFactorization;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import PrimeFactorization.SystemInformation.SystemInformation;
 
 public class PrimeFactorization {
     public void Main(long n) {
@@ -10,11 +12,14 @@ public class PrimeFactorization {
             return;
         }
 
+        SystemInformation si = new SystemInformation();
+        si.printProrties();
+
         System.out.println(Long.toString(n) + " < pow(2, " + Long.toString(GetBitLength(n, 4097)) + ")");
 
         long start = System.currentTimeMillis();
 
-        Long[] result = trial_division(n);
+        long[] result = trial_division(n);
 
         long end = System.currentTimeMillis();
 
@@ -31,7 +36,7 @@ public class PrimeFactorization {
         return -1;
     }
 
-    private Long[] trial_division(long n) {
+    private long[] trial_division(long n) {
         List<Long> prime_list = new ArrayList<>();
         long max = (long)(Math.sqrt(n)) + 1;
         for (long i = 2; i < max; i++) {
@@ -45,11 +50,15 @@ public class PrimeFactorization {
             prime_list.add(n);
         }
 
-        Long[] result = prime_list.toArray(new Long[prime_list.size()]);
+        // Long[] result = prime_list.toArray(new Long[prime_list.size()]);
+        long[] result = new long[prime_list.size()];
+        for (int i = 0; i < prime_list.size(); i++) {
+            result[i] = prime_list.get(i);
+        }
         return result;
     }
 
-    private String ArraylongToString(Long[] primes) {
+    private String ArraylongToString(long[] primes) {
         if (primes.length <= 0) {
             return "";
         }

@@ -16,3 +16,12 @@ D:\n1.inoue\OneDrive\Develop-Works\LANGS\Go\go_work\Example_RSA_by_Golang\PrimeF
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\Go\go_work\Example_RSA_by_Golang\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.csprojAssemblyReference.cache
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\Go\go_work\Example_RSA_by_Golang\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.dll
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\Go\go_work\Example_RSA_by_Golang\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.pdb
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.exe
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.deps.json
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.runtimeconfig.json
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.runtimeconfig.dev.json
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.dll
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\release\netcoreapp3.0\Project_CS.pdb
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.csprojAssemblyReference.cache
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.dll
+D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.pdb

@@ -14,6 +14,9 @@ namespace Project_CS
                 return;
             }
 
+            SystemInformation si = new SystemInformation();
+            si.PrintSystemInformation();
+
             Console.WriteLine(n.ToString() + " < pow(2, " + GetBitLength(n, 4097).ToString() + ")");
 
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
