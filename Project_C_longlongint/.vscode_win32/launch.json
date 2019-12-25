@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/primefactorization.exe",
+            "program": "${workspaceRoot}/debug_primefactorization.exe",
             "miDebuggerPath": "C:\\Programs\\MinGW\\bin\\gdb.exe",
             "args": [
             //  "100"

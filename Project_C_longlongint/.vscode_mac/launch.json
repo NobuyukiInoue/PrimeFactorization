@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/primefactorization_for_mac",
+            "program": "${workspaceFolder}/debug_primefactorization_for_mac",
             "args": [
             //  "100"
                 "123456789012345678"
