@@ -1,5 +1,6 @@
 CC=gcc
-CC_FLAGS=-g -O0 -o
+CC_FLAGS_DEBUG=-g -lm -O0 -o
+CC_FLAGS_RELEASE=-lm -o
 
 PROJECT_NAME=primefactorization
 SOURCE=$(PROJECT_NAME).c
@@ -25,7 +26,10 @@ endif
 all:	$(TARGET_FILE)
 
 $(TARGET_FILE):	$(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
-	$(CC) $(CC_FLAGS)$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
+	$(CC) $(CC_FLAGS_RELEASE)$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
+
+debug:	$(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
+	$(CC) $(CC_FLAGS_DEBUG)debug_$(TARGET_FILE) $(SOURCE) $(MYLIB_PATH)/$(MYLIB_NAME)
 
 clean:
 	rm $(TARGET_FILE)	# Can not run on Windows

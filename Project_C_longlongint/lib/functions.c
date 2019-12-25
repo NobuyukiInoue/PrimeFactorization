@@ -26,7 +26,7 @@ void primefactorization(long long int n)
 
     printf("n = %lld, primes = [%s]\n", n, arraylonglong_To_chararray(primes));
     printf("Answer Check : %s\n", answer_check(n, primes));
-    printf("Execute time : %.4f [s]\n\n", (double)(time_end - time_start)/CLOCKS_PER_SEC);
+    printf("Execute time : %.3f [s]\n\n", (double)(time_end - time_start)/CLOCKS_PER_SEC);
 }
 
 long long int get_bitlength(long long int n, long long int max)
