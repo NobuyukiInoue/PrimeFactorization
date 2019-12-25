@@ -25,3 +25,12 @@ D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_C
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.csprojAssemblyReference.cache
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.dll
 D:\n1.inoue\OneDrive\Develop-Works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\release\netcoreapp3.0\Project_CS.pdb
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.exe
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.deps.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.runtimeconfig.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.runtimeconfig.dev.json
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\bin\Release\netcoreapp3.0\Project_CS.pdb
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\Release\netcoreapp3.0\Project_CS.csprojAssemblyReference.cache
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\Release\netcoreapp3.0\Project_CS.dll
+C:\Users\sprin\OneDrive\Develop-works\LANGS\SpeedTests\PrimeFactorization\Project_CS_long\obj\Release\netcoreapp3.0\Project_CS.pdb

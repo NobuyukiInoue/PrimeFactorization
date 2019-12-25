@@ -13,7 +13,7 @@ public class PrimeFactorization {
         }
 
         SystemInformation si = new SystemInformation();
-        si.printProrties();
+        si.printProperties();
 
         System.out.println(Long.toString(n) + " < pow(2, " + Long.toString(GetBitLength(n, 4097)) + ")");
 

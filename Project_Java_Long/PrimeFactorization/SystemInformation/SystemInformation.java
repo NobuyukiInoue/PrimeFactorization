@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class SystemInformation {
-    public void printProrties() {
+    public void printProperties() {
          // Get Date and Time
          DateTimeFormatter df1 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
          String datetimeStr = df1.format(LocalDateTime.now());

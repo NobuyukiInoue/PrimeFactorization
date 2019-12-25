@@ -8,25 +8,25 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\n1.inoue\\.nuget\\packages\\": {},
+    "C:\\Users\\sprin\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\n1.inoue\\OneDrive\\Develop-Works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\Project_CS.csproj",
+      "projectUniqueName": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\Project_CS.csproj",
       "projectName": "Project_CS",
-      "projectPath": "D:\\n1.inoue\\OneDrive\\Develop-Works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\Project_CS.csproj",
-      "packagesPath": "C:\\Users\\n1.inoue\\.nuget\\packages\\",
-      "outputPath": "D:\\n1.inoue\\OneDrive\\Develop-Works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\obj\\",
+      "projectPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\Project_CS.csproj",
+      "packagesPath": "C:\\Users\\sprin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sprin\\OneDrive\\Develop-works\\LANGS\\SpeedTests\\PrimeFactorization\\Project_CS_long\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\n1.inoue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sprin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
