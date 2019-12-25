@@ -11,12 +11,12 @@
 void primefactorization(long long int n)
 {
     if (n < 2) {
-        printf("%ld is not positive longeger.\n", n);
+        printf("%llu is not positive longeger.\n", n);
         return;
     }
 
     print_properties();
-    printf("%lld < pow(2, %ld)\n", n,  get_bitlength(n, 4097));
+    printf("%llu < pow(2, %llu)\n", n,  get_bitlength(n, 4097));
 
     clock_t time_start = clock();
 
@@ -24,7 +24,7 @@ void primefactorization(long long int n)
 
     clock_t time_end = clock();
 
-    printf("n = %lld, primes = [%s]\n", n, arraylonglong_To_chararray(primes));
+    printf("n = %llu, primes = [%s]\n", n, arraylonglong_To_chararray(primes));
     printf("Answer Check : %s\n", answer_check(n, primes));
     printf("Execute time : %.3f [s]\n\n", (double)(time_end - time_start)/CLOCKS_PER_SEC);
 }
@@ -102,12 +102,12 @@ char *arraylonglong_To_chararray(s_primes *primes)
     char *resultStr = (char *)malloc(sizeof(char) * resultStrMAX);
     char work_str[1000];
 
-    sprintf(resultStr, "%ld", primes->list[0]);
+    sprintf(resultStr, "%llu", primes->list[0]);
 
     int total_length = 0;
 
     for (int i = 1; i < primes->length; i++) {
-        sprintf(work_str, ", %lld", primes->list[i]);
+        sprintf(work_str, ", %llu", primes->list[i]);
 
         total_length += strlen(work_str);
         if (total_length < resultStrMAX) {
