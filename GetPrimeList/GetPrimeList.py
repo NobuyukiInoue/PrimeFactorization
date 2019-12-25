@@ -10,6 +10,10 @@ def main():
     if argc < 2:
         exit_msg(argv[0])
 
+    if argv[1].isnumeric() == False:
+        print("{0} is not numeric.".format(argv[1]))
+        exit(1)
+
     n = int(argv[1])
     primes = sieve_of_eratosthenes(n)
     print(primes)
@@ -23,7 +27,7 @@ def exit_msg(argv0):
 def sieve_of_eratosthenes(primeNumber_Max):
     """エラトステネスのふるいを利用して素数の配列を生成する"""
 
-    dest = int(math.sqrt(primeNumber_Max))
+    dest = int(math.sqrt(primeNumber_Max)) + 1
     target_list = list(range(2, primeNumber_Max + 1))
     prime_list = []
  
