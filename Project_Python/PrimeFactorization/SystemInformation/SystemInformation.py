@@ -12,6 +12,6 @@ def printSystemInformation():
         "====================================================================================="
         .format(
             "Date", "{0:%Y-%m-%d %H:%M:%S}".format(datetime.datetime.now()),
-            "OS", platform.system(),
-            "Language", "Python3"
+            "Language", "Python3",
+            "OS", platform.system()
         ))
