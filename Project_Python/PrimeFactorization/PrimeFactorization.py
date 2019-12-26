@@ -23,7 +23,7 @@ def main(n):
 
     print("n = {0:d}, primes = {1}".format(n, primes))
     print("Answer Check : {0}".format(mul_check(n, primes)))
-    print("Execute time : {0:f}[s]".format(time1 - time0))
+    print("Execute time : {0:f}[s]\n".format(time1 - time0))
 
 
 def exit_msg(argv0):
