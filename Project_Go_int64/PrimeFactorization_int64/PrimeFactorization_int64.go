@@ -2,7 +2,6 @@ package PrimeFactorization
 
 import (
 	"fmt"
-	"math"
 	"strconv"
 	"strings"
 	"time"
@@ -32,10 +31,37 @@ func Main(n int64) {
 	fmt.Printf("Execute time: %.3f [s]\n\n", timeEnd.Sub(timeStart).Seconds())
 }
 
+func sqrtint64(x int64) int64 {
+	if x == 0 {
+		return 0
+	}
+	var left, right, ans int64
+	left, right, ans = 1, x, 0
+	for left <= right {
+		mid := left + (right-left)/2
+		if mid <= x/mid {
+			left = mid + 1
+			ans = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return ans
+}
+
+func powint64(x int64, y int64) int64 {
+	ans := int64(1)
+	for i := int64(0); i < y; i++ {
+		ans *= x
+	}
+	return ans
+}
+
 // GetBitLength ...
 func GetBitLength(n int64, max int64) int64 {
 	for i := int64(1); i < max; i++ {
-		if n <= int64(math.Pow(2, float64(i))) {
+		//if n <= int64(math.Pow(2, float64(i))) {
+		if n <= powint64(2, i) {
 			return i
 		}
 	}
@@ -47,7 +73,8 @@ func CalcPrimes(n int64) []int64 {
 	// 素因数を格納する配列
 	results := make([]int64, 0)
 
-	max := int64(math.Sqrt(float64(n))) + 1
+	//	max := int64(math.Sqrt(float64(n))) + 1
+	max := int64(sqrtint64(n)) + 1
 
 	// 2 で割っていく
 	for n%2 == 0 {
