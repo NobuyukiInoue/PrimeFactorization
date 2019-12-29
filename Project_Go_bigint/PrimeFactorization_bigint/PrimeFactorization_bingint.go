@@ -17,7 +17,6 @@ func Main(n *big.Int) {
 
 	systeminformation.PrintSystemInformation()
 
-
 	bitCount := GetBitLength(*n, 5000)
 	fmt.Printf("%s < pow(2, %d) ... %d bit\n", n.String(), bitCount, bitCount)
 
@@ -80,9 +79,9 @@ func CalcPrimes(n *big.Int) []*big.Int {
 	//max := new(big.Int).Add(mySqrt(n), big.NewInt(1)) // 7.241[s] (n = 12345678901)
 
 	// 2 で割っていく
-	num_2 := big.NewInt(2)
-	for workNnext, mod := new(big.Int).DivMod(workN, num_2, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num_2, new(big.Int)) {
-		results = append(results, num_2)
+	num2 := big.NewInt(2)
+	for workNnext, mod := new(big.Int).DivMod(workN, num2, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num2, new(big.Int)) {
+		results = append(results, num2)
 
 		if workNnext.Cmp(big.NewInt(1)) == 0 {
 			return results
@@ -91,8 +90,22 @@ func CalcPrimes(n *big.Int) []*big.Int {
 		workN = workNnext
 	}
 
-	// 3 ～ math.sqrt(n) の数字で割っていく
-	for num := big.NewInt(3); num.Cmp(max) != 0; num = new(big.Int).Add(num, num_2) {
+	// 3 で割っていく
+	num3 := big.NewInt(3)
+	for workNnext, mod := new(big.Int).DivMod(workN, num3, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num3, new(big.Int)) {
+		results = append(results, num3)
+
+		if workNnext.Cmp(big.NewInt(1)) == 0 {
+			return results
+		}
+
+		workN = workNnext
+	}
+
+	// 5 ～ math.sqrt(n) の数字で割っていく
+	flag := true
+	num4 := big.NewInt(4)
+	for num := big.NewInt(5); num.Cmp(max) != 0; {
 		for workNnext, mod := new(big.Int).DivMod(workN, num, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num, new(big.Int)) {
 			results = append(results, num)
 
@@ -105,6 +118,13 @@ func CalcPrimes(n *big.Int) []*big.Int {
 		if workN.Cmp(big.NewInt(1)) == 0 {
 			break
 		}
+
+		if flag {
+			num = new(big.Int).Add(num, num2)
+		} else {
+			num = new(big.Int).Add(num, num4)
+		}
+		flag = !flag
 	}
 
 	if workN.Cmp(big.NewInt(1)) != 0 {
@@ -131,10 +151,10 @@ func ArrayBigIntToString(primes []*big.Int) string {
 // AnswerCheck ...
 func AnswerCheck(n *big.Int, primes []*big.Int) string {
 	answer := big.NewInt(1)
-	for _, target := range(primes) {
+	for _, target := range primes {
 		answer = new(big.Int).Mul(answer, target)
 	}
-	
+
 	if n.Cmp(answer) == 0 {
 		return "OK"
 	} else {

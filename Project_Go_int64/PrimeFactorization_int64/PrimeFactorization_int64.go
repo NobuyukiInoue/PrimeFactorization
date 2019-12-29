@@ -82,8 +82,15 @@ func CalcPrimes(n int64) []int64 {
 		n /= int64(2)
 	}
 
-	// 3 ～ math.sqrt(n) の数字で割っていく
-	for num := int64(3); num < max; num += 2 {
+	// 3 で割っていく
+	for n%3 == 0 {
+		results = append(results, 3)
+		n /= int64(3)
+	}
+
+	flag := true
+	// 5 ～ math.sqrt(n) の数字で割っていく
+	for num := int64(5); num < max; {
 		for n%num == 0 {
 			results = append(results, num)
 			n /= num
@@ -92,6 +99,13 @@ func CalcPrimes(n int64) []int64 {
 		if n == 1 {
 			break
 		}
+
+		if flag {
+			num += 2
+		} else {
+			num += 4
+		}
+		flag = !flag
 	}
 
 	if n != 1 {

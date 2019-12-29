@@ -47,12 +47,26 @@ public class PrimeFactorization {
             n /= 2;
         }
 
-        // 3 ` Math.sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
-        for (long i = 3; i < max; i += 2) {
+        // 3 ‚ÅŠ„‚Á‚Ä‚¢‚­
+        while (n % 3 == 0) {
+            prime_list.add((long)2);
+            n /= 3;
+        }
+
+        // 5 ` Math.sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
+        boolean flag = true;
+        for (long i = 5; i < max; ) {
             while (n % i == 0) {
                 prime_list.add(i);
                 n /= i;
             }
+
+            if (flag)
+                i += 2;
+            else
+                i += 4;
+
+            flag ^= 1;
         }
 
         if (n != 1) {

@@ -48,12 +48,26 @@ public class PrimeFactorization {
             n = n.divide(new BigInteger("2"));
         }
 
-        // 3 ` Math.sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
-        for (BigInteger i = new BigInteger("3"); i.compareTo(max) < 0; i = i.add(new BigInteger("2"))) {
+        // 3 ‚ÅŠ„‚Á‚Ä‚¢‚­
+        while (n.mod(new BigInteger("3")).compareTo(new BigInteger("0")) == 0) {
+            prime_list.add(new BigInteger("3"));
+            n = n.divide(new BigInteger("3"));
+        }
+
+        // 5 ` Math.sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
+        Boolean flag = true;
+        for (BigInteger i = new BigInteger("5"); i.compareTo(max) < 0; ) {
             while (n.mod(i).compareTo(new BigInteger("0")) == 0) {
                 prime_list.add(i);
                 n = n.divide(i);
             }
+
+            if (flag)
+                i = i.add(new BigInteger("2"));
+            else
+                i = i.add(new BigInteger("4"));
+
+            flag = !flag;
         }
 
         if (n.compareTo(new BigInteger("1")) != 0) {

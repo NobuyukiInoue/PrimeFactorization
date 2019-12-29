@@ -48,18 +48,32 @@ namespace Project_CS
             List<long> prime_list = new List<long>();
             long max = (long)(Math.Sqrt(n)) + 1;
 
-            // 2 ‚ÅŠ„‚Á‚Ä‚¢‚­
+            // 2 ã§å‰²ã£ã¦ã„ã
             while (n % 2 == 0) {
                 prime_list.Add((long)2);
                 n /= 2;
             }
 
-            // 3 ` Math.Sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
-            for (long i = 3; i < max; i++) {
+            // 3 ã§å‰²ã£ã¦ã„ã
+            while (n % 3 == 0) {
+                prime_list.Add((long)2);
+                n /= 3;
+            }
+
+            // 5 ï½ Math.Sqrt(n) ã®æ•°å­—ã§å‰²ã£ã¦ã„ã
+            bool flag = true;
+            for (long i = 3; i < max; ) {
                 while (n % i == 0) {
                     prime_list.Add(i);
                     n /= i;
                 }
+
+                if (flag)
+                    i += 2;
+                else
+                    i += 4;
+
+                flag = !flag;
             }
 
             if (n != 1) {

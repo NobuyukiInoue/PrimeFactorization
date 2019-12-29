@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -70,12 +71,26 @@ s_primes *trial_division(long long int n)
         work_n /= 2;
     }
 
-    // 3 ～ Math.sqrt(n) で割っていく
-    for (long long int i = 3; i < max; i += (long long int)2) {
+    // 3 で割っていく
+    while (work_n % 3 == 0) {
+        prime_list[count++] = (long long int)2;
+        work_n /= 3;
+    }
+
+    // 5 ～ Math.sqrt(n) で割っていく
+    bool flag = true;
+    for (long long int i = 5; i < max; ) {
         while (work_n % i == 0) {
             prime_list[count++] = (long long int)i;
             work_n /= i;
         }
+
+        if (flag)
+            i += (long long int)2;
+        else
+            i += (long long int)4;
+
+        flag ^= 1;
     }
 
     if (work_n != 1) {

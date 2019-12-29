@@ -48,6 +48,40 @@ def trial_division(n):
             n //= num
             prime_list.append(num)
 
+    """
+    # 下記の処理では逆に遅くなる。
+    # for文の場合
+    while n % 3 == 0:
+        prime_list.append(3)
+        n //= 3
+
+    for num in range(5, max, 2):
+        while n % num == 0:
+            n //= num
+            prime_list.append(num)
+        if flag:
+            num += 2
+        flag = not flag
+    """
+
+    """
+    # 下記の処理では逆に遅くなる。
+    # while文の場合
+    while n % 3 == 0:
+        prime_list.append(3)
+        n //= 3
+
+    while num < max:
+        while n % num == 0:
+            n //= num
+            prime_list.append(num)
+        if flag:
+            num += 4
+        else:
+            num += 2
+        flag = not flag
+    """
+
     if n != 1:
         prime_list.append(n)
 
