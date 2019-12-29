@@ -56,7 +56,7 @@ namespace Project_CS
 
             // 3 で割っていく
             while (n % 3 == 0) {
-                prime_list.Add((long)2);
+                prime_list.Add((long)3);
                 n /= 3;
             }
 

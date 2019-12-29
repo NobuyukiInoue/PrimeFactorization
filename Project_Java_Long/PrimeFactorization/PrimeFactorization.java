@@ -49,7 +49,7 @@ public class PrimeFactorization {
 
         // 3 ‚ÅŠ„‚Á‚Ä‚¢‚­
         while (n % 3 == 0) {
-            prime_list.add((long)2);
+            prime_list.add((long)3);
             n /= 3;
         }
 
@@ -66,7 +66,7 @@ public class PrimeFactorization {
             else
                 i += 4;
 
-            flag ^= 1;
+            flag = !flag;
         }
 
         if (n != 1) {

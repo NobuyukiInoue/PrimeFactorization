@@ -73,7 +73,7 @@ s_primes *trial_division(long long int n)
 
     // 3 で割っていく
     while (work_n % 3 == 0) {
-        prime_list[count++] = (long long int)2;
+        prime_list[count++] = (long long int)3;
         work_n /= 3;
     }
 
