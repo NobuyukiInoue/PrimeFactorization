@@ -47,6 +47,8 @@ def trial_division(n):
         while n % num == 0:
             n //= num
             prime_list.append(num)
+            if n == 1:
+                return prime_list
 
     """
     # 下記の処理では逆に遅くなる。
@@ -59,6 +61,8 @@ def trial_division(n):
         while n % num == 0:
             n //= num
             prime_list.append(num)
+            if n == 1:
+                return prime_list
         if flag:
             num += 2
         flag = not flag
@@ -75,6 +79,8 @@ def trial_division(n):
         while n % num == 0:
             n //= num
             prime_list.append(num)
+            if n == 1:
+                return prime_list
         if flag:
             num += 4
         else:

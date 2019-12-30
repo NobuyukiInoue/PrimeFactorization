@@ -94,10 +94,9 @@ func CalcPrimes(n int64) []int64 {
 		for n%num == 0 {
 			results = append(results, num)
 			n /= num
-		}
-
-		if n == 1 {
-			break
+			if n == 1 {
+				return results
+			}
 		}
 
 		if flag {

@@ -41,36 +41,44 @@ public class PrimeFactorization {
     private BigInteger[] trial_division(BigInteger n) {
         List<BigInteger> prime_list = new ArrayList<>();
         BigInteger max = n.sqrt().add(new BigInteger("1")) ;
+        BigInteger num0 = new BigInteger("0");
+        BigInteger num1 = new BigInteger("1");
+        BigInteger num2 = new BigInteger("2");
+        BigInteger num3 = new BigInteger("3");
+        BigInteger num4 = new BigInteger("4");
 
         // 2 ‚ÅŠ„‚Á‚Ä‚¢‚­
-        while (n.mod(new BigInteger("2")).compareTo(new BigInteger("0")) == 0) {
-            prime_list.add(new BigInteger("2"));
-            n = n.divide(new BigInteger("2"));
+        while (n.mod(num2).compareTo(num0) == 0) {
+            prime_list.add(num2);
+            n = n.divide(num2);
         }
 
         // 3 ‚ÅŠ„‚Á‚Ä‚¢‚­
-        while (n.mod(new BigInteger("3")).compareTo(new BigInteger("0")) == 0) {
-            prime_list.add(new BigInteger("3"));
-            n = n.divide(new BigInteger("3"));
+        while (n.mod(num3).compareTo(num0) == 0) {
+            prime_list.add(num3);
+            n = n.divide(num3);
         }
 
         // 5 ` Math.sqrt(n) ‚Ì”š‚ÅŠ„‚Á‚Ä‚¢‚­
         Boolean flag = true;
+
         for (BigInteger i = new BigInteger("5"); i.compareTo(max) < 0; ) {
-            while (n.mod(i).compareTo(new BigInteger("0")) == 0) {
+            while (n.mod(i).compareTo(num0) == 0) {
                 prime_list.add(i);
                 n = n.divide(i);
+                if (n.compareTo(num1) == 0)
+                    i = max;
             }
 
             if (flag)
-                i = i.add(new BigInteger("2"));
+                i = i.add(num2);
             else
-                i = i.add(new BigInteger("4"));
+                i = i.add(num4);
 
             flag = !flag;
         }
 
-        if (n.compareTo(new BigInteger("1")) != 0) {
+        if (n.compareTo(num1) != 0) {
             prime_list.add(n);
         }
 

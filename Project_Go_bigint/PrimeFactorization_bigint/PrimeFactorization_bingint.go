@@ -74,13 +74,18 @@ func CalcPrimes(n *big.Int) []*big.Int {
 	results := make([]*big.Int, 0)
 	workN := n
 
+	num0 := big.NewInt(0)
+	num1 := big.NewInt(1)
+	num2 := big.NewInt(2)
+	num3 := big.NewInt(3)
+	num4 := big.NewInt(4)
+
 	//max = int(math.sqrt(n)) + 1
-	max := new(big.Int).Add(new(big.Int).Sqrt(n), big.NewInt(1)) // 7.169[s] (n = 12345678901)
+	max := new(big.Int).Add(new(big.Int).Sqrt(n), num1) // 7.169[s] (n = 12345678901)
 	//max := new(big.Int).Add(mySqrt(n), big.NewInt(1)) // 7.241[s] (n = 12345678901)
 
 	// 2 で割っていく
-	num2 := big.NewInt(2)
-	for workNnext, mod := new(big.Int).DivMod(workN, num2, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num2, new(big.Int)) {
+	for workNnext, mod := new(big.Int).DivMod(workN, num2, new(big.Int)); mod.Cmp(num0) == 0; workNnext, mod = new(big.Int).DivMod(workN, num2, new(big.Int)) {
 		results = append(results, num2)
 
 		if workNnext.Cmp(big.NewInt(1)) == 0 {
@@ -91,8 +96,7 @@ func CalcPrimes(n *big.Int) []*big.Int {
 	}
 
 	// 3 で割っていく
-	num3 := big.NewInt(3)
-	for workNnext, mod := new(big.Int).DivMod(workN, num3, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num3, new(big.Int)) {
+	for workNnext, mod := new(big.Int).DivMod(workN, num3, new(big.Int)); mod.Cmp(num0) == 0; workNnext, mod = new(big.Int).DivMod(workN, num3, new(big.Int)) {
 		results = append(results, num3)
 
 		if workNnext.Cmp(big.NewInt(1)) == 0 {
@@ -104,19 +108,14 @@ func CalcPrimes(n *big.Int) []*big.Int {
 
 	// 5 ～ math.sqrt(n) の数字で割っていく
 	flag := true
-	num4 := big.NewInt(4)
 	for num := big.NewInt(5); num.Cmp(max) != 0; {
-		for workNnext, mod := new(big.Int).DivMod(workN, num, new(big.Int)); mod.Cmp(big.NewInt(0)) == 0; workNnext, mod = new(big.Int).DivMod(workN, num, new(big.Int)) {
+		for workNnext, mod := new(big.Int).DivMod(workN, num, new(big.Int)); mod.Cmp(num0) == 0; workNnext, mod = new(big.Int).DivMod(workN, num, new(big.Int)) {
 			results = append(results, num)
 
-			if workN.Cmp(big.NewInt(1)) == 0 {
-				break
+			if workNnext.Cmp(num1) == 0 {
+				return results
 			}
 			workN = workNnext
-		}
-
-		if workN.Cmp(big.NewInt(1)) == 0 {
-			break
 		}
 
 		if flag {
@@ -127,7 +126,7 @@ func CalcPrimes(n *big.Int) []*big.Int {
 		flag = !flag
 	}
 
-	if workN.Cmp(big.NewInt(1)) != 0 {
+	if workN.Cmp(num1) != 0 {
 		results = append(results, workN)
 	}
 

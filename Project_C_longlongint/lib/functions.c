@@ -83,6 +83,8 @@ s_primes *trial_division(long long int n)
         while (work_n % i == 0) {
             prime_list[count++] = (long long int)i;
             work_n /= i;
+            if (n == 1)
+                i = max;
         }
 
         if (flag)
@@ -96,7 +98,7 @@ s_primes *trial_division(long long int n)
     if (work_n != 1) {
         prime_list[count++] = work_n;
     }
-
+    
     s_primes* primes = (s_primes *)malloc(sizeof(s_primes));
     primes->list = (long long int *)malloc(sizeof(long long int)* count);
     primes->length = count;

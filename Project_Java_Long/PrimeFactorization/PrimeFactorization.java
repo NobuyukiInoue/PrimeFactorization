@@ -59,6 +59,8 @@ public class PrimeFactorization {
             while (n % i == 0) {
                 prime_list.add(i);
                 n /= i;
+                if (n == 1)
+                    i = max;
             }
 
             if (flag)

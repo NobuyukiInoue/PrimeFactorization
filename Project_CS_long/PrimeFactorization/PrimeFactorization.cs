@@ -66,6 +66,8 @@ namespace Project_CS
                 while (n % i == 0) {
                     prime_list.Add(i);
                     n /= i;
+                    if (n == 1)
+                        return prime_list.ToArray();
                 }
 
                 if (flag)
@@ -76,9 +78,8 @@ namespace Project_CS
                 flag = !flag;
             }
 
-            if (n != 1) {
+            if (n != 1)
                 prime_list.Add(n);
-            }
 
             return prime_list.ToArray();
         }
