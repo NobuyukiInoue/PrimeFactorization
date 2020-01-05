@@ -9,7 +9,8 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/debug_primefactorization.exe",
-            "miDebuggerPath": "C:\\Programs\\MinGW\\bin\\gdb.exe",
+//          "miDebuggerPath": "C:\\Programs\\MinGW\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\opt\\Programs\\MinGW\\bin\\gdb.exe",
             "args": [
             //  "100"
                 "123456789012345678"

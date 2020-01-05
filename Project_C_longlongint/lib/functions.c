@@ -8,6 +8,7 @@
 #include "../include/functions.h"
 #include "../include/mylib.h"
 #include "../include/systeminformation.h"
+#include "../include/listnode.h"
 
 void primefactorization(long long int n)
 {
@@ -60,20 +61,21 @@ long long int sqrtll(long long int x)
 
 s_primes *trial_division(long long int n)
 {
-    long long int prime_list[1000];
+    ArrayList *arr;
+    arr = ArrayList_New();
+
     long long int max = (long long int)(sqrtll(n)) + 1;
-    int count = 0;
     long long int work_n = n;
 
     // 2 で割っていく
     while (work_n % 2 == 0) {
-        prime_list[count++] = (long long int)2;
+        ArrayList_Add(arr, (long long int)2);
         work_n /= 2;
     }
 
     // 3 で割っていく
     while (work_n % 3 == 0) {
-        prime_list[count++] = (long long int)3;
+        ArrayList_Add(arr, (long long int)3);
         work_n /= 3;
     }
 
@@ -81,7 +83,7 @@ s_primes *trial_division(long long int n)
     bool flag = true;
     for (long long int i = 5; i < max; ) {
         while (work_n % i == 0) {
-            prime_list[count++] = (long long int)i;
+            ArrayList_Add(arr, (long long int)i);
             work_n /= i;
             if (n == 1)
                 i = max;
@@ -96,15 +98,15 @@ s_primes *trial_division(long long int n)
     }
 
     if (work_n != 1) {
-        prime_list[count++] = work_n;
+        ArrayList_Add(arr, (long long int)work_n);
     }
     
     s_primes* primes = (s_primes *)malloc(sizeof(s_primes));
-    primes->list = (long long int *)malloc(sizeof(long long int)* count);
-    primes->length = count;
+    primes->list = (long long int *)malloc(sizeof(long long int)* arr->length);
+    primes->length = arr->length;
 
-    for (int i = 0; i < count; i++) {
-        primes->list[i] = prime_list[i];
+    for (int i = 0; i < primes->length; i++) {
+        primes->list[i] = ArrayList_Get(arr, i);
     }
 
     return primes;
