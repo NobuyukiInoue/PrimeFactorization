@@ -61,8 +61,7 @@ long long int sqrtll(long long int x)
 
 s_primes *trial_division(long long int n)
 {
-    ArrayList *arr;
-    arr = ArrayList_New();
+    ArrayList *arr = ArrayList_New();
 
     long long int max = (long long int)(sqrtll(n)) + 1;
     long long int work_n = n;
