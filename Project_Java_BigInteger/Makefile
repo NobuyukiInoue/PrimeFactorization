@@ -1,5 +1,5 @@
 JAVAC =javac
-# JAVAC_FLAGS =-encoding SJIS
+JAVAC_FLAGS =-encoding SJIS
 
 all:	SystemInformation.class PrimeFactorization.class Main.class
 
