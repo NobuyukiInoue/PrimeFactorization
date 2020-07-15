@@ -84,7 +84,7 @@ s_primes *trial_division(long long int n)
         while (work_n % i == 0) {
             ArrayList_Add(arr, (long long int)i);
             work_n /= i;
-            if (n == 1)
+            if (work_n == 1)
                 i = max;
         }
 
