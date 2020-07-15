@@ -1,6 +1,6 @@
 CC=gcc
 CC_FLAGS_DEBUG=-g -lm -O0 -o
-CC_FLAGS_RELEASE=-lm -o
+CC_FLAGS_RELEASE=-lm -O3 -o
 
 PROJECT_NAME=primefactorization
 SOURCE=$(PROJECT_NAME).c
