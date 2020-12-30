@@ -85,3 +85,25 @@ $ cd Project_Python3
 ```
 $ python main.py 123456789
 ```
+
+
+## Project for Elixir
+
+### Change Directory
+
+```
+$ cd Project_Elixir
+```
+
+### Build
+
+```
+$ mix compile
+$ mix escript.build
+```
+
+### Run(Elixir)
+
+```
+$ ./primefactorization 123456789
+```
