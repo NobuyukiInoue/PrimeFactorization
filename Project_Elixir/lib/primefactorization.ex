@@ -18,8 +18,8 @@ defmodule Primefactorization do
     datetime |> IO.puts
     "Language  : Elixir" |> IO.puts
     "=====================================================================================" |> IO.puts
-    Factorization1.execute(n)
+  # Factorization1.execute(n)
   # IO.puts ""
-  # Factorization2.execute(n)
+    Factorization2.execute(n)
   end
 end

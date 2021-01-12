@@ -26,14 +26,47 @@ defmodule Factorization2 do
   end
 
   def factor(p, n, x, limit) do
-    div_6 = div(x, 6)
     cond do
+      n == 1 -> p
       x > limit -> [n | p]
       rem(n, x) == 0 -> factor([x | p], div(n, x), x, limit)
-      x == 2 -> factor(p, n, 3, limit)
-      div_6 == 1 -> factor(p, n, x + 2, limit)
-      div_6 == 5 -> factor(p, n, x + 4, limit)
-      true -> factor(p, n, x + 2, limit)
+      true -> factor3(p, n, 3, limit)
+    end
+  end
+
+  def factor3(p, n, x, limit) do
+    cond do
+      n == 1 -> p
+      x > limit -> [n | p]
+      rem(n, x) == 0 -> factor([x | p], div(n, x), x, limit)
+      true -> factor5(p, n, 5, limit)
+    end
+  end
+
+  def factor5(p, n, x, limit) do
+    cond do
+      n == 1 -> p
+      x > limit -> [n | p]
+      rem(n, x) == 0 -> factor([x | p], div(n, x), x, limit)
+      true -> factor_add2(p, n, 7, limit)
+    end
+  end
+
+  def factor_add2(p, n, x, limit) do
+    cond do
+      n == 1 -> p
+      x > limit -> [n | p]
+      rem(n, x) == 0 -> factor([x | p], div(n, x), x, limit)
+      true -> factor_add4(p, n, x + 4, limit)
+    end
+  end
+
+  def factor_add4(p, n, x, limit) do
+    cond do
+      n == 1 -> p
+      x > limit -> [n | p]
+      rem(n, x) == 0 -> factor([x | p], div(n, x), x, limit)
+      true -> factor_add2(p, n, x + 2, limit)
     end
   end
 end
